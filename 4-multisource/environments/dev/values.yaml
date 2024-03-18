@@ -1,0 +1,5 @@
+replicas:
+  clientCount: 1
+  serverCount: 1
+builds:
+  enable: false

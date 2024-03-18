@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: product-catalog-dev
+  namespace: gitops-demo
+spec:
+  project: default
+  sources:
+    - chart: product-catalog
+      repoURL: https://gnunn-gitops.github.io/helm-charts
+      targetRevision: 0.1.7
+      helm:
+        releaseName: product-catalog
+        valueFiles:
+        - $values/4-multisource/environments/dev
+    - repoURL: https://github.com/gitops-examples/helm-patterns
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: gitops-demo-target
+  syncPolicy:
+    automated:
+      selfHeal: true
