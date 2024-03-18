@@ -2,9 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: product-catalog-dev
+  namespace: gitops-demo
 spec:
   destination:
-    namespace: default
+    namespace: gitops-demo=target
     server: "https://kubernetes.default.svc"
   project: default
   source:
