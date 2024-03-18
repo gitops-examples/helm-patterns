@@ -5,13 +5,16 @@ metadata:
   namespace: gitops-demo
 spec:
   destination:
-    namespace: gitops-demo=target
+    namespace: gitops-demo-target
     server: "https://kubernetes.default.svc"
   project: default
   source:
     helm:
       valueFiles:
-        - 2-git-repo/environments/dev/values.yaml
+        - /2-git-repo/environments/dev/values.yaml
     path: 2-git-repo/common
     repoURL: https://github.com/gitops-examples/helm-patterns
     targetRevision: main
+  syncPolicy:
+    automated:
+      selfHeal: true
