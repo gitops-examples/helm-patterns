@@ -1,0 +1,9 @@
+apiVersion: v2
+name: product-catalog-umbrella
+type: application
+version: 1.0.0
+kubeVersion: '>=1.14.6'
+dependencies:
+  - name: "product-catalog"
+    version: "0.1.7"
+    repository: "https://gnunn-gitops.github.io/helm-charts"

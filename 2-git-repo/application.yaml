@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: product-catalog-dev
+spec:
+  destination:
+    namespace: default
+    server: "https://kubernetes.default.svc"
+  project: default
+  source:
+    helm:
+      valueFiles:
+        - 2-git-repo/environments/dev/values.yaml
+    path: 2-git-repo/common
+    repoURL: https://github.com/gitops-examples/helm-patterns
+    targetRevision: main
