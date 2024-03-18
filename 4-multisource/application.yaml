@@ -12,7 +12,7 @@ spec:
       helm:
         releaseName: product-catalog
         valueFiles:
-        - $values/4-multisource/environments/dev
+        - $values/4-multisource/environments/dev/values.yaml
     - repoURL: https://github.com/gitops-examples/helm-patterns
       targetRevision: HEAD
       ref: values
